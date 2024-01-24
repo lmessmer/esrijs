@@ -15,12 +15,13 @@
     require([
       "esri/config", 
       "esri/Map", 
-      "esri/views/MapView"
-    ], function(esriConfig, Map, MapView) {   
+      "esri/views/MapView",
+      "esri/widgets/Locate"
+    ], function(esriConfig, Map, MapView, Locate) {   
 
       esriConfig.apiKey = "AAPKc722771c0ccc42f6b3a50f98f0541437noDYBlU0Z8XIJioQe0FCEDxsHh9fAgIj7WZTgQnwd8Iro4vn-CgJSPt4wG7YeNvj"
       const map = new Map({ 
-        basemap: "arcgis-topographic" // Basemap layer service 
+        basemap: "osm/blueprint" // Basemap layer service 
       });
 
       const view = new MapView({
@@ -30,6 +31,8 @@
           container: "viewDiv" // Div element
         });
     });  
+
+    
   </script>
 
   <!-- css opening full screen map -->
