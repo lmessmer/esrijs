@@ -16,20 +16,27 @@
       "esri/config", 
       "esri/Map", 
       "esri/views/MapView",
-      "esri/widgets/Locate"
-    ], function(esriConfig, Map, MapView, Locate) {   
+      "esri/widgets/Locate",
+      "esri/widgets/BasemapGallery"
+    ], function(esriConfig, Map, MapView, Locate, BasemapGallery) {   
 
       esriConfig.apiKey = "AAPKc722771c0ccc42f6b3a50f98f0541437noDYBlU0Z8XIJioQe0FCEDxsHh9fAgIj7WZTgQnwd8Iro4vn-CgJSPt4wG7YeNvj"
       const map = new Map({ 
-        basemap: "osm/blueprint" // Basemap layer service 
+        basemap: "arcgis-light-gray"
       });
-
+      
       const view = new MapView({
           map: map,
           center: [-88.837, 42.9299], // Longitude, latitude
           zoom: 14, // Zoom level
           container: "viewDiv" // Div element
-        });
+      });
+
+      const basemapGallery = new BasemapGallery({
+          view: view,
+          source: [Basemap.fromId("topo-vector"), Basemap.fromId("hybrid"),]
+      });
+
     });  
 
     
