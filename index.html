@@ -7,7 +7,7 @@
   <meta name="description" content="" />
   <!-- calls arcgis api CSS and JS library -->
   <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.25/"></script>
+  <script src="https://js.arcgis.com/4.28/"></script>
 
 
   <!--  adds modules for full screen map app  -->
@@ -17,8 +17,9 @@
       "esri/Map", 
       "esri/views/MapView",
       "esri/widgets/Locate",
-      "esri/widgets/BasemapGallery"
-    ], function(esriConfig, Map, MapView, Locate, BasemapGallery) {   
+      "esri/widgets/BasemapGallery",
+      "esri/widgets/Search"
+    ], function(esriConfig, Map, MapView, Locate, BasemapGallery, Search) {   
 
       esriConfig.apiKey = "AAPKc722771c0ccc42f6b3a50f98f0541437noDYBlU0Z8XIJioQe0FCEDxsHh9fAgIj7WZTgQnwd8Iro4vn-CgJSPt4wG7YeNvj"
       const map = new Map({ 
@@ -27,15 +28,22 @@
       
       const view = new MapView({
           map: map,
-          center: [-88.837, 42.9299], // Longitude, latitude
-          zoom: 14, // Zoom level
-          container: "viewDiv" // Div element
+          center: [-88.837, 42.9299], // longitude, latitude
+          zoom: 14,
+          container: "viewDiv"
       });
+      
+      const locateBtn = new Locate({view: view});
+      view.ui.add(locateBtn, {position: "top-left"});
 
       const basemapGallery = new BasemapGallery({
           view: view,
           source: [Basemap.fromId("topo-vector"), Basemap.fromId("hybrid"),]
       });
+      view.ui.add(basemapGallery, {position: "top-right" });
+
+      const searchWidget = new Search({ view: view});
+      view.ui.add(searchWidget, {position: "top-left"});
 
     });  
 
