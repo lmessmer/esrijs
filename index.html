@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Hello, Map!</title>
+  <title>GEOG 576 Lab 1</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
@@ -37,13 +37,13 @@
       view.ui.add(locateBtn, {position: "top-left"});
 
       const basemapGallery = new BasemapGallery({
-          view: view,
-          source: [Basemap.fromId("topo-vector"), Basemap.fromId("hybrid"),]
+          view: view
+          //source: [Basemap.fromId("topo-vector"), Basemap.fromId("arcgis-topographic")]
       });
       view.ui.add(basemapGallery, {position: "top-right" });
 
       const searchWidget = new Search({ view: view});
-      view.ui.add(searchWidget, {position: "top-left"});
+      view.ui.add(searchWidget, {position: "top-left", index: 0});
 
     });  
 
