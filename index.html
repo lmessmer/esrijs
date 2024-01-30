@@ -36,14 +36,14 @@
       const locateBtn = new Locate({view: view});
       view.ui.add(locateBtn, {position: "top-left"});
 
-      const basemapGallery = new BasemapGallery({
-          view: view
-          //source: [Basemap.fromId("topo-vector"), Basemap.fromId("arcgis-topographic")]
-      });
+      const basemapGallery = new BasemapGallery({view: view});
       view.ui.add(basemapGallery, {position: "top-right" });
 
       const searchWidget = new Search({ view: view});
       view.ui.add(searchWidget, {position: "top-left", index: 0});
+
+      
+
 
     });  
 
