@@ -1,2 +1,2 @@
 # esrijs
-First ESRI JS map
+second lab for geospatial mapping, accessing AGOL
